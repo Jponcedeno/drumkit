@@ -59,6 +59,13 @@
       const keys = document.querySelectorAll(".key");
       console.log(keys);
 
+      window.addEventListener("keydown", function (e) {
+        console.log(e);
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        if (!audio) return;
+        audio.play();
+      });
+
       document.addEventListener("keydown", function (event) {
         console.log(event.keyCode);
         const number = event.keyCode;
@@ -75,13 +82,6 @@
             }, 100);
           }
         }
-
-        // if (event.keyCode === 83) {
-        //   key.classList.add("playing");
-        //   setTimeout(() => {
-        //     key.classList.toggle("playing");
-        //   }, 100);
-        // }
       });
     </script>
   </body>
